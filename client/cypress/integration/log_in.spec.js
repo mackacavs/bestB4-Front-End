@@ -11,7 +11,7 @@ describe('Home page', function() {
     cy.get('.btn-primary').click();
     cy.url().should('include', '/dashboard')
   });
-  it('warns user with wrong email during log in', function() {
+  it('stay in the login page with wrong email format', function() {
     cy.visit('/');
     cy.get('.btn-light').click();
     cy.get('input[name=email]').type(`bigtimecharlie3{enter}`)
