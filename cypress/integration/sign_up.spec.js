@@ -7,6 +7,7 @@ describe('Home page', function() {
     cy.visit('/');
     cy.get('.btn-primary').click();
     cy.get('input[name=name]').type(`BigTimeCharlie3{enter}`)
+    cy.get('input[name=postcode]').type(`sw18 2tg{enter}`)
     cy.get('input[name=email]').type(`bigtimecharlie3@gmail.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
     cy.get('input[name=password2]').type(`123456{enter}`)
