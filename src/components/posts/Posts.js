@@ -11,15 +11,12 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   return loading ? '' :
 
     <Fragment>
-      <h1 className="large tet-primary">Posts</h1>
-      <PostForm />
-      <div className="posts">
+      <div className="posts right_margin">
         {posts.map(post => (
           <PostItem key={post._id} post={post} />
         ))}
-
-
       </div>
+      <br />
 
     </Fragment>
 
