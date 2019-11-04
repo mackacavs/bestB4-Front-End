@@ -47,7 +47,7 @@ const Register = ({ register, isAuthenticated }) => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Name"
+            placeholder="Postcode"
             name="postcode"
             value={postcode}
             onChange={e => onChange(e)}
@@ -99,4 +99,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
-
