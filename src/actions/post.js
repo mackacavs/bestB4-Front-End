@@ -1,10 +1,10 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_POSTS, POST_ERROR, ADD_POST } from './types';
+import { GET_POSTS, POST_ERROR, ADD_POST, GET_USER_POSTS } from './types';
 
 export const getPosts = () => async dispatch => {
   try {
-    const res = await axios.get('api/posts')
+    const res = await axios.get('api/posts/')
 
     dispatch({
       type: GET_POSTS,
@@ -19,8 +19,25 @@ export const getPosts = () => async dispatch => {
   }
 }
 
-export const addPost = (description, expiry) => async dispatch => {
+export const getUserPosts = () => async dispatch => {
+  try {
+    const res = await axios.get('api/posts/currentuser')
 
+    dispatch({
+      type: GET_USER_POSTS,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: POST_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    })
+
+  }
+}
+
+export const addPost = (description, expiry) => async dispatch => {
+  console.log("hello")
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -31,7 +48,6 @@ export const addPost = (description, expiry) => async dispatch => {
 
   try {
     const res = await axios.post('api/posts', body, config);
-    console.log(res)
     dispatch({
       type: ADD_POST,
       payload: res.data
