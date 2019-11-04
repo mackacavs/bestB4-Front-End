@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addPost } from '../../actions/post'
+import { addPost } from '../../actions/post';
+import { addRecipe } from '../../actions/recipe'
 
-const PostForm = ({ addPost }) => {
+const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user } }) => {
 
   const [formData, setFormData] = useState({
     description: '',
@@ -16,19 +17,20 @@ const PostForm = ({ addPost }) => {
   const onSubmit = async e => {
     e.preventDefault()
     addPost(description, expiry)
+    setFormData({ ...formData, description: '', expiry: '' })
   }
 
   return (
-    <div className="post-form">
+    <div className="post-form" style={{ flex: 1 }}>
       <div className="bg-primary p">
-        <h3>Say Something...</h3>
+        <h3>Add some food to share</h3>
       </div>
       <form className="form my-1" onSubmit={e => onSubmit(e)}>
         <textarea
           name="description"
           cols="30"
           rows="5"
-          placeholder="Create a post"
+          placeholder="List an ingredient"
           value={description}
           onChange={e => onChange(e)}
           required
@@ -49,8 +51,9 @@ const PostForm = ({ addPost }) => {
   )
 }
 
-PostForm.propTypes = {
+const mapStateToProps = state => ({
+  post: state.post,
+  auth: state.auth
+})
 
-}
-
-export default connect(null, { addPost })(PostForm)
+export default connect(mapStateToProps, { addPost, addRecipe })(PostForm)
