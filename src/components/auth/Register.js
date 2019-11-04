@@ -8,11 +8,12 @@ const Register = ({ register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    postcode: '',
     password: '',
     password2: ''
   });
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, postcode, password, password2 } = formData;
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value })
 
@@ -21,12 +22,12 @@ const Register = ({ register, isAuthenticated }) => {
     if (password !== password2) {
       setAlert("The passwords do not match", 'danger')
     } else {
-      register({ name, email, password });
+      register({ name, email, postcode, password });
     }
   };
 
   if (isAuthenticated) {
-    return <Redirect to="/dashboard" />
+    return <Redirect to="/profile" />
   }
 
   return (
@@ -40,6 +41,15 @@ const Register = ({ register, isAuthenticated }) => {
             placeholder="Name"
             name="name"
             value={name}
+            onChange={e => onChange(e)}
+            required />
+        </div>
+        <div className="form-group">
+          <input
+            type="text"
+            placeholder="Name"
+            name="postcode"
+            value={postcode}
             onChange={e => onChange(e)}
             required />
         </div>
@@ -89,3 +99,4 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, { setAlert, register })(Register);
+
