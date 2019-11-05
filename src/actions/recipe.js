@@ -15,7 +15,7 @@ export const addRecipe = (posts, userPosts, postcode) => async dispatch => {
   })
 
   fetch(
-    'https://api.spoonacular.com/recipes/findByIngredients?apiKey=a88201885e1544eca8f3aa1b0f4c0547&ingredients=apples,+flour,+sugar&number=2')
+    'https://api.spoonacular.com/recipes/findByIngredients?apiKey=API_KEY_HERE&ingredients=apples,+flour,+sugar&number=2')
     .then((res) => res.json())
     .then(data => {
       console.log(data)
