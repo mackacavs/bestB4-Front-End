@@ -8,8 +8,7 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`happy@gmail.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
-    cy.get('.btn').click();
     cy.get('ul>:nth-child(1)>a').click();
-    cy.url().should('include', '/posts')
+    cy.url().should('include', '/profile')
   });
 });
