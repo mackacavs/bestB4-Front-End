@@ -35,7 +35,7 @@ const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user
           onChange={e => onChange(e)}
           required
         ></textarea>
-        <textarea
+        <input type ="date"
           name="expiry"
           cols="30"
           rows="5"
@@ -43,7 +43,7 @@ const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user
           value={expiry}
           onChange={e => onChange(e)}
           required
-        ></textarea>
+        />
 
         <input type="submit" className="btn btn-dark my-1" value="Submit" />
       </form>
