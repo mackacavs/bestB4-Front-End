@@ -4,14 +4,12 @@ import { setAlert } from './alert';
 import setAuthToken from '../utils/setAuthToken'
 
 export const loadUser = () => async dispatch => {
-  console.log(localStorage.token)
   if (localStorage.token) {
     setAuthToken(localStorage.token);
   }
 
   try {
     const res = await axios.get('/api/auth');
-    console.log(res)
     dispatch({
       type: USER_LOADED,
       payload: res.data
@@ -23,14 +21,14 @@ export const loadUser = () => async dispatch => {
   }
 }
 
-export const register = ({ name, email, password }) => async dispatch => {
+export const register = ({ name, email, password, postcode }) => async dispatch => {
   const config = {
     headers: {
       'content-type': 'application/json'
     }
   }
 
-  const body = JSON.stringify({ name, email, password })
+  const body = JSON.stringify({ name, email, postcode, password })
 
   try {
     const res = await axios.post('/api/users', body, config);

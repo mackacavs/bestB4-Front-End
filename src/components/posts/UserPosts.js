@@ -1,20 +1,21 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getPosts } from '../../actions/post';
+import { getUserPosts, addPost } from '../../actions/post';
 import PostForm from './PostForm'
 import PostItem from './PostItem'
 
-const Posts = ({ getPosts, post: { posts, loading } }) => {
+const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {
   useEffect(() => {
-    getPosts();
-  }, [getPosts])
+    getUserPosts();
+  }, [getUserPosts])
   return loading ? '' :
 
     <Fragment>
       <div className="posts right_margin">
-        {posts.map(post => (
+        {userPosts.map(post => (
           <PostItem key={post._id} post={post} />
         ))}
+
       </div>
       <br />
 
@@ -26,4 +27,4 @@ const mapStateToProps = state => ({
   post: state.post
 })
 
-export default connect(mapStateToProps, { getPosts })(Posts)
+export default connect(mapStateToProps, { getUserPosts })(UserPosts)

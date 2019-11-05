@@ -6,6 +6,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Posts from './components/posts/Posts';
+import Profile from './components/profile/Profile';
 
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
@@ -33,6 +34,7 @@ const App = () => {
           <section className="container">
             <Alert />
             <Switch>
+              <Route exact path="/profile" component={Profile} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path='/posts' component={Posts} />
