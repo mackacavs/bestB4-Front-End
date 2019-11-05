@@ -26,7 +26,7 @@ listOfIngredients.forEach(function(ingredient,index) {
 
 })
 url=url.slice(0,-1)
-url = url + '&number=2'
+url = url + '&number=3'
 console.log(url)
   fetch(url)
     .then((res) => res.json())
@@ -34,8 +34,8 @@ console.log(url)
       console.log(data)
       dispatch({
         type: ADD_RECIPES,
-        payload: listOfIngredients
-      })
+        payload: data
+      });
     })
 
 }
