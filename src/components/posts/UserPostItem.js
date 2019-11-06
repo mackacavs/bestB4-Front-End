@@ -2,20 +2,19 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
-import { getUserPosts, addPost, deleteUserPosts } from '../../actions/post';
+import { deleteUserPosts } from '../../actions/post';
 
 
 
 
-// const { description, expiry } = formData;
-// const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-const onSubmit = async e => {
-  e.preventDefault()
-  deleteUserPosts()
-  // setFormData({ ...formData, description: '', expiry: '' })
-}
 
-const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
+
+const PostItem = ({ deleteUserPosts, auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
+
+  const onSubmit = async (e,_id) => {
+    e.preventDefault()
+    deleteUserPosts(_id)
+  }
   return (
     !auth.loading && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2) && (
       <div className="post bg-white mb">
@@ -30,7 +29,7 @@ const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, 
           <p className="my-1">
             Description: {description}
           </p>
-          <form  onSubmit={e => onSubmit(e)}>
+          <form  onSubmit={e => onSubmit(e,_id)}>
           <input type="submit" className="btn btn-dark my-1" value="Delete item" />
         </form>
         </div>
@@ -44,4 +43,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, {})(PostItem)
+export default connect(mapStateToProps, {deleteUserPosts})(PostItem)
