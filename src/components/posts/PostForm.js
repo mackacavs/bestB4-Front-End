@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-date-picker';
+import moment from 'moment';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
-import { addRecipe } from '../../actions/recipe'
+import { addRecipe } from '../../actions/recipe';
 
 const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user } }) => {
 
@@ -12,11 +14,13 @@ const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user
 
   const { description, expiry } = formData;
 
-  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
-
+  const onChange = e => {
+    console.log(e);
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  }
   const onSubmit = async e => {
     e.preventDefault()
-    addPost(description, expiry)
+    addPost(description, moment(expiry).format('YYYY-MM-DD'))
     setFormData({ ...formData, description: '', expiry: '' })
   }
 
@@ -35,14 +39,13 @@ const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user
           onChange={e => onChange(e)}
           required
         ></textarea>
-        <input type ="date"
-          name="expiry"
-          cols="30"
-          rows="5"
-          placeholder="When is it expiring?"
+        <DatePicker name="expiry"
+          showLeadingZeros="true"
+          minDate={moment().toDate()}
+          maxDate={moment().add('years', 10).toDate()}
+          required="true"
           value={expiry}
-          onChange={e => onChange(e)}
-          required
+          onChange={value => onChange({ target: { name: 'expiry', value: value }})}
         />
 
         <input type="submit" className="btn btn-dark my-1" value="Submit" />

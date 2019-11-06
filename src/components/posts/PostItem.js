@@ -17,7 +17,6 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
 
   const onSubmit = async e => {
     e.preventDefault()
-    console.log("Helloe");
     addMessage(message, user)
     setFormData({ ...formData, message: '' })
   }
