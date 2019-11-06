@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getUserPosts, addPost } from '../../actions/post';
 import PostForm from './PostForm'
 import PostItem from './PostItem'
+import UserPostItem from './UserPostItem'
 
 const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {
   useEffect(() => {
@@ -11,9 +12,12 @@ const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {
   return loading ? '' :
 
     <Fragment>
+
+
       <div className="posts right_margin">
+        <h1 className="mb" style={{textAlign:'center'}}>Here's what you have in your fridge</h1>
         {userPosts.map(post => (
-          <PostItem key={post._id} post={post} />
+          <UserPostItem key={post._id} post={post} />
         ))}
 
       </div>
