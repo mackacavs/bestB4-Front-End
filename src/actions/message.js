@@ -19,7 +19,7 @@ export const addMessage = (message, user) => async dispatch => {
   try {
     const res = await axios.post('api/messages', body, config);
 
-    // dispatch(setAlert('Post Created', 'success'))
+    dispatch(setAlert('Message sent', 'success'))
   } catch (err) {
     dispatch({
       type: POST_ERROR,
