@@ -4,11 +4,6 @@ import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteUserPosts } from '../../actions/post';
 
-
-
-
-
-
 const PostItem = ({ deleteUserPosts, auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
 
   const onSubmit = async (e,_id) => {
@@ -29,12 +24,17 @@ const PostItem = ({ deleteUserPosts, auth, post: { _id, description, avatar, nam
           <p className="my-1">
             Description: {description}
           </p>
+          <p className="post-date">
+            Expiry Date:&nbsp;
+            <Moment format="DD/MM/YYYY">
+              {expiry}
+            </Moment>
+          </p>
           <form  onSubmit={e => onSubmit(e,_id)}>
-          <input type="submit" className="btn btn-dark my-1" value="Delete item" />
-        </form>
+            <input type="submit" className="btn btn-dark my-1" value="Delete item" />
+          </form>
         </div>
       </div>
-
     )
   )
 }

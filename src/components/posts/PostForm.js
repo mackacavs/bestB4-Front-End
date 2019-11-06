@@ -14,10 +14,8 @@ const PostForm = ({ addPost, addRecipe, post: { posts, userPosts }, auth: { user
 
   const { description, expiry } = formData;
 
-  const onChange = e => {
-    console.log(e);
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+
   const onSubmit = async e => {
     e.preventDefault()
     addPost(description, moment(expiry).format('YYYY-MM-DD'))
