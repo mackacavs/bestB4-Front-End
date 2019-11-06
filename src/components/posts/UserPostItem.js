@@ -2,6 +2,18 @@ import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { getUserPosts, addPost, deleteUserPosts } from '../../actions/post';
+
+
+
+
+// const { description, expiry } = formData;
+// const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
+const onSubmit = async e => {
+  e.preventDefault()
+  deleteUserPosts()
+  // setFormData({ ...formData, description: '', expiry: '' })
+}
 
 const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
   return (
@@ -18,7 +30,9 @@ const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, 
           <p className="my-1">
             Description: {description}
           </p>
-
+          <form  onSubmit={e => onSubmit(e)}>
+          <input type="submit" className="btn btn-dark my-1" value="Delete item" />
+        </form>
         </div>
       </div>
 

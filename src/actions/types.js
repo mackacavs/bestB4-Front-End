@@ -13,5 +13,5 @@ export const POST_ERROR = 'POST_ERROR';
 export const ADD_POST = 'ADD_POST';
 export const ADD_RECIPES = 'ADD_RECIPES';
 export const GET_RECIPES = 'ADD_RECIPES';
-
-
+export const DELETE_POSTS = 'DELETE_POSTS';
+export const DELETE_ERROR = 'DELETE_ERROR';
