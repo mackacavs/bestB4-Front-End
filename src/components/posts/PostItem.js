@@ -22,57 +22,48 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
     setFormData({ ...formData, message: '' })
   }
 
-  return (
-    !auth.loading && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2) && (
+  if (!auth.loading
+    && postcode
+    && auth.user.postcode
+    && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2)
+  ) {
+    return (
       <div className="post bg-white mb">
-      <div>
-      <h4 style={{ width: "150px", marginBottom: "0.5rem" }} className="mb-1">{name}</h4>
-      <img style={{ width: "40px" }}
-      className="round-img"
-      src={avatar}
-      alt="" />
+        <div>
+          <h4 style={{ width: "150px", marginBottom: "0.5rem" }} className="mb-1">{name}</h4>
+          <img style={{ width: "40px" }}
+            className="round-img"
+            src={avatar}
+            alt="" />
+        </div>
+        <div>
+          <p className="my-1">
+            Description: {description}
+          </p>
+          <p className="my-1">
+            Postcode: {postcode}
+          </p>
+          <p className="post-date">
+            Expiry Date: {expiry}
+          </p>
+        </div>
+        <form className="form my-1" onSubmit={e => onSubmit(e)}>
+          <textarea
+            name="message"
+            cols="30"
+            rows="5"
+            placeholder="List an ingredient"
+            value={message}
+            onChange={e => onChange(e)}
+            required
+          ></textarea>
+          <input type="submit" className="btn btn-dark my-1" value="Submit" />
+        </form>
       </div>
-      <div>
-
-      <p className="my-1">
-      Description: {description}
-      </p>
-
-      <p className="my-1">
-      Postcode: {postcode}
-      </p>
-
-      <p className="post-date">
-      Expiry Date: {expiry}
-      </p>
-
-
-      </div>
-
-
-      <form className="form my-1" onSubmit={e => onSubmit(e)}>
-        <textarea
-          name="message"
-          cols="30"
-          rows="5"
-          placeholder="List an ingredient"
-          value={message}
-          onChange={e => onChange(e)}
-          required
-        ></textarea>
-
-
-        <input type="submit" className="btn btn-dark my-1" value="Submit" />
-      </form>
-
-
-
-
-
-      </div>
-
     )
-  )
+  } else {
+    return '';
+  }
 }
 
 const mapStateToProps = state => ({
