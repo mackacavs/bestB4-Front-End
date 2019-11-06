@@ -15,3 +15,6 @@ export const ADD_RECIPES = 'ADD_RECIPES';
 export const GET_RECIPES = 'ADD_RECIPES';
 export const DELETE_POSTS = 'DELETE_POSTS';
 export const DELETE_ERROR = 'DELETE_ERROR';
+export const GET_MESSAGES = 'GET_MESSAGES';
+export const MESSAGE_ERROR = 'MESSAGE_ERROR';
+
