@@ -7,6 +7,7 @@ import Login from './components/auth/Login';
 import Alert from './components/layout/Alert';
 import Posts from './components/posts/Posts';
 import Profile from './components/profile/Profile';
+import Messages from './components/messages/Messages';
 
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
@@ -38,6 +39,7 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path='/posts' component={Posts} />
+              <Route exact path='/messages' component={Messages} />
             </Switch>
           </section>
         </Fragment>

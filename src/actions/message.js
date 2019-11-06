@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { GET_POSTS, POST_ERROR, ADD_POST, GET_USER_POSTS } from './types';
+import { GET_MESSAGES, MESSAGE_ERROR } from './types';
+
 
 export const addMessage = (message, user) => async dispatch => {
   console.log("hello")
@@ -22,7 +23,24 @@ export const addMessage = (message, user) => async dispatch => {
     dispatch(setAlert('Message sent', 'success'))
   } catch (err) {
     dispatch({
-      type: POST_ERROR,
+      type: MESSAGE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    })
+
+  }
+}
+
+export const getMessages = () => async dispatch => {
+  try {
+    const res = await axios.get('api/messages/')
+
+    dispatch({
+      type: GET_MESSAGES,
+      payload: res.data
+    })
+  } catch (err) {
+    dispatch({
+      type: MESSAGE_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status }
     })
 
