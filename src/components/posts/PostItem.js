@@ -44,7 +44,10 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
             Postcode: {postcode}
           </p>
           <p className="post-date">
-            Expiry Date: {expiry}
+            Expiry Date:&nbsp;
+            <Moment format="DD/MM/YYYY">
+              {expiry}
+            </Moment>
           </p>
         </div>
         <form className="form my-1" onSubmit={e => onSubmit(e)}>
