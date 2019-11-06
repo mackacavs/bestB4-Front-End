@@ -2,8 +2,10 @@ import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
+import { addMessage } from '../../actions/message'
 
-const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
+
+const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
 
   const [formData, setFormData] = useState({
     message: '',
@@ -15,10 +17,10 @@ const PostItem = ({ auth, post: { _id, description, avatar, name, user, expiry, 
 
   const onSubmit = async e => {
     e.preventDefault()
+    console.log("Helloe");
+    addMessage(message, user)
     setFormData({ ...formData, message: '' })
   }
-
-
 
   return (
     !auth.loading && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2) && (
@@ -77,4 +79,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, {})(PostItem)
+export default connect(mapStateToProps, {addMessage})(PostItem)
