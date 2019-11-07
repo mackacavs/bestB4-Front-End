@@ -30,7 +30,7 @@ const PostItem = ({ addMessage, addLocation, auth, post: { _id, description, ava
   if (!auth.loading
     && postcode
     && auth.user.postcode
-    && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2)
+    && auth.user.postcode.slice(0, 3) === postcode.slice(0, 3)
   ) {
     return (
       <div className="post bg-white mb">
