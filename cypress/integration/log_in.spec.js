@@ -8,7 +8,8 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`usera@example.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
-    cy.url().should('include', '/profile')
+    cy.contains("Here's what you have in your fridge")
+    // cy.url().should('include', '/profile')
   });
 
   it('stay in the login page with wrong email format', function() {
@@ -16,7 +17,7 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`happy{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
-    cy.url().should('include', '/login');
+    cy.contains("Don't have an account? Sign Up")
   });
 
   it('stay in the login page with wrong password format', function() {
@@ -24,6 +25,6 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`happy@gmail.com{enter}`)
     cy.get('input[name=password]').type(`12345{enter}`)
-    cy.url().should('include', '/login');
+    cy.contains("Don't have an account? Sign Up")
   });
 });
