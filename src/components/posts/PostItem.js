@@ -54,7 +54,7 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
             name="message"
             cols="30"
             rows="5"
-            placeholder="List an ingredient"
+            placeholder="Send a message"
             value={message}
             onChange={e => onChange(e)}
             required
