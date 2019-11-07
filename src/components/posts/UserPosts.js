@@ -5,8 +5,6 @@ import PostForm from './PostForm'
 import PostItem from './PostItem'
 import UserPostItem from './UserPostItem'
 
-
-
 const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {
   useEffect(() => {
     getUserPosts();
@@ -19,7 +17,7 @@ const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {
 
 
       <div className="posts right_margin">
-        <h1 className="mb" style={{textAlign:'center'}}>Here's what you have in your fridge</h1>
+        <h1 className="mb" style={{ textAlign: 'center' }}>Here's what you have in your fridge</h1>
         {userPosts.map(post => (
           <UserPostItem key={post._id} post={post} />
         ))}

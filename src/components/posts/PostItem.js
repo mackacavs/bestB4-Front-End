@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addMessage } from '../../actions/message'
+import { addLocation } from '../../actions/googleMap'
 
 
-const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
+const PostItem = ({ addMessage, addLocation, auth, post: { _id, description, avatar, name, user, expiry, postcode } }) => {
 
   const [formData, setFormData] = useState({
     message: '',
@@ -19,6 +20,11 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
     e.preventDefault()
     addMessage(message, user)
     setFormData({ ...formData, message: '' })
+  }
+
+  const onSubmitLocation = async (e, postcode) => {
+    e.preventDefault()
+    addLocation(postcode, description, name)
   }
 
   if (!auth.loading
@@ -61,6 +67,10 @@ const PostItem = ({ addMessage, auth, post: { _id, description, avatar, name, us
           ></textarea>
           <input type="submit" className="btn btn-dark my-1" value="Submit" />
         </form>
+        <form onSubmit={e => onSubmitLocation(e, postcode)}>
+          <input type="submit" className="btn btn-dark my-1" value="Check Location" />
+        </form>
+
       </div>
     )
   } else {
@@ -72,4 +82,4 @@ const mapStateToProps = state => ({
   auth: state.auth
 })
 
-export default connect(mapStateToProps, {addMessage})(PostItem)
+export default connect(mapStateToProps, { addMessage, addLocation })(PostItem)

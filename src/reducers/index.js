@@ -4,6 +4,7 @@ import auth from './auth';
 import post from './post';
 import recipe from './recipe';
 import message from './message';
+import googleMap from './googleMap';
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   auth,
   post,
   recipe,
-  message
+  message,
+  googleMap
 });
