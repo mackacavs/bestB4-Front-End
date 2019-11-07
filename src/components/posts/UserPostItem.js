@@ -12,28 +12,20 @@ const PostItem = ({ deleteUserPosts, auth, post: { _id, description, avatar, nam
   }
   return (
     !auth.loading && auth.user.postcode.slice(0, 2) === postcode.slice(0, 2) && (
-      <div className="post bg-white mb">
-        <div>
-          <h4 style={{ width: "150px", marginBottom: "0.5rem" }} className="mb-1">{name}</h4>
-          <img style={{ width: "40px" }}
-            className="round-img"
-            src={avatar}
-            alt="" />
-        </div>
-        <div>
-          <p className="my-1">
-            Description: {description}
-          </p>
-          <p className="post-date">
-            Expiry Date:&nbsp;
-            <Moment format="DD/MM/YYYY">
-              {expiry}
-            </Moment>
-          </p>
-          <form  onSubmit={e => onSubmit(e,_id)}>
-            <input type="submit" className="btn btn-dark my-1" value="Delete item" />
-          </form>
-        </div>
+      <div className="ingredient bg-white mb">
+        <p className="description">
+          {description}
+        </p>
+        <div className="separator"></div>
+        <p className="expiry">
+          Expiry Date:&nbsp;
+          <Moment format="DD/MM/YYYY">
+            {expiry}
+          </Moment>
+        </p>
+        <form onSubmit={e => onSubmit(e,_id)} className="delete-ingredient">
+          <input type="submit" className="btn btn-dark" value="Delete item" />
+        </form>
       </div>
     )
   )
