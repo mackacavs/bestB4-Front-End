@@ -8,7 +8,6 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`usera@example.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
-    // cy.get('input[name=login_submit][type=submit]').click();
     cy.url().should('include', '/profile')
   });
 
@@ -17,7 +16,6 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`happy{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
-    // cy.get('input[name=login_submit][type=submit]').click();
     cy.url().should('include', '/login');
   });
 
@@ -26,7 +24,6 @@ describe('Home page', function() {
     cy.get('a[name=login]').click();
     cy.get('input[name=email]').type(`happy@gmail.com{enter}`)
     cy.get('input[name=password]').type(`12345{enter}`)
-    // cy.get('input[name=login_submit][type=submit]').click();
     cy.url().should('include', '/login');
   });
 });
