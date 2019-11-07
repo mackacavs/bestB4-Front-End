@@ -17,4 +17,5 @@ export const DELETE_POSTS = 'DELETE_POSTS';
 export const DELETE_ERROR = 'DELETE_ERROR';
 export const GET_MESSAGES = 'GET_MESSAGES';
 export const MESSAGE_ERROR = 'MESSAGE_ERROR';
+export const ADD_LOCATION = 'ADD_LOCATION';
 
