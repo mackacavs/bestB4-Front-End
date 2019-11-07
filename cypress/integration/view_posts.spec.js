@@ -9,6 +9,6 @@ describe('Home page', function() {
     cy.get('input[name=email]').type(`usera@example.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
     cy.get('ul>:nth-child(1)>a').click();
-    cy.url().should('include', '/profile')
+    cy.contains("Here's what's available close to you")
   });
 });

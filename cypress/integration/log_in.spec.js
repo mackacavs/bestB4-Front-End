@@ -9,7 +9,6 @@ describe('Home page', function() {
     cy.get('input[name=email]').type(`usera@example.com{enter}`)
     cy.get('input[name=password]').type(`123456{enter}`)
     cy.contains("Here's what you have in your fridge")
-    // cy.url().should('include', '/profile')
   });
 
   it('stay in the login page with wrong email format', function() {
