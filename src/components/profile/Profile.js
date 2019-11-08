@@ -15,13 +15,14 @@ const Profile = props => {
         <UserPosts />
         <PostForm />
       </div>
-      <h4>Here's what's available close to you</h4>
+      <h2>Here's what's available close to you</h2>
       <br />
       <Posts />
       <AddRecipe />
       <Recipe />
 
-      <h4>Here's how you can get there...</h4>
+      <h2>Here's how you can get there...</h2>
+      <br />
       <br />
       <GoogleMap />
     </Fragment>

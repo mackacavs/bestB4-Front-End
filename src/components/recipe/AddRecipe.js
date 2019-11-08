@@ -10,10 +10,10 @@ const Recipe = ({ addRecipe, post: { posts, userPosts }, auth: { user } }) => {
   }
 
   return (
-    <div  className="post-form" style={{ flex: 1 }}>
+    <div className="post-form" >
       <form className="form my-1" onSubmit={e => onSubmit(e)}>
 
-        <input type="submit" className="btn btn-dark my-1" value="Click here for recipes"  />
+        <input type="submit" className="btn btn-dark my-1" value="Click here for recipes" />
 
       </form>
 

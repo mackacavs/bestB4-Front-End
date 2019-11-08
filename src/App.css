@@ -29,10 +29,12 @@ img {
 }
 .flex_container {
   display: flex;
+  flex-wrap: wrap
 }
 .posts {
-  width: 518px;
+  width: 1050px;
   flex: 2;
+  border-radius: 5%
 }
 .right_margin {
   margin-right: 0.75rem;
@@ -52,11 +54,19 @@ img {
 img {
   width: 20px
 }
+
 h4 {
   margin: auto;
   width: 50%;
   text-align: center;
 }
+
+h2 {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
 /* Utilities */
 .container {
   max-width: 1100px;
@@ -151,6 +161,7 @@ h4 {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  /* text-align: center */
 }
 .badge {
   font-size: 0.8rem;
@@ -427,9 +438,13 @@ button {
 }
 .post {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 4fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-radius: 5%;
+
 }
 .post > div:first-child {
   text-align: center;
@@ -519,4 +534,28 @@ button {
   .post button {
     padding: 0.3rem 0.4rem;
   }
+}
+
+.ingredient {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.ingredient .description {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.ingredient .separator {
+  flex-grow: 1;
+}
+
+.ingredient .expiry {
+  margin-right: 10px;
+}
+
+.ingredient .delete-ingredient {
+
 }

@@ -11,7 +11,7 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
   return loading ? '' :
 
     <Fragment>
-      <div className="posts right_margin">
+      <div className="posts right_margin flex_container mb" style={{ textAlign: "center" }}>
         {posts.map(post => (
           <PostItem key={post._id} post={post} />
         ))}
