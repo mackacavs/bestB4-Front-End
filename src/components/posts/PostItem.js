@@ -33,9 +33,9 @@ const PostItem = ({ addMessage, addLocation, auth, post: { _id, description, ava
     && auth.user.postcode.slice(0, 3) === postcode.slice(0, 3)
   ) {
     return (
-      <div className="post bg-white mb">
+      <div className="post bg-white mb" style={{ textAlign: "center" }}>
         <div>
-          <h4 style={{ width: "150px", marginBottom: "0.5rem" }} className="mb-1">{name}</h4>
+          <h4 style={{ width: "100px", marginBottom: "0.5rem" }} className="mb-1">{name}</h4>
           <img style={{ width: "40px" }}
             className="round-img"
             src={avatar}
@@ -56,16 +56,16 @@ const PostItem = ({ addMessage, addLocation, auth, post: { _id, description, ava
           </p>
         </div>
         <form className="form my-1" onSubmit={e => onSubmit(e)}>
-          <textarea
+          <textarea style={{ textAlign: "center", border: "1px solid #17A2B8" }}
             name="message"
-            cols="30"
-            rows="5"
+            cols="20"
+            rows="2"
             placeholder="Send a message"
             value={message}
             onChange={e => onChange(e)}
             required
           ></textarea>
-          <input type="submit" className="btn btn-dark my-1" value="Submit" />
+          <input type="submit" className="btn btn-dark my-1" value="Submit" style={{ textAlign: "center" }} />
         </form>
         <form onSubmit={e => onSubmitLocation(e, postcode)}>
           <input type="submit" className="btn btn-dark my-1" value="Check Location" />
