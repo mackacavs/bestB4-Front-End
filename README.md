@@ -1,3 +1,135 @@
-Full README for this project is available on the back end repository README available at https://github.com/mackacavs/BestB4/blob/master/README.md
+# BestB4
 
-Test
+                  (
+                   )
+              __..---..__
+          ,-='  /  |  \  `=-.,
+          :--..___________..--;
+           \.,_____________,./
+
+
+
+### Project Description
+
+As our final project at Makers Academy - team BestB4 consisting of Eithel, Elsie, Jules, Mackenzie and Valeria had the challenge of changing the world in 8 days.  We came up with this - a website to help people waste less food by allowing users to easily give away food they won't use - or food that's about to expire - to other people in their local community. Here's our tasks broken down into user stories-
+
+```
+As a user
+So I can find unwanted food
+I can view a list of available food
+
+As a user
+So I can access my account
+I can log in
+
+As a user
+So I can create an account
+I can sign up
+
+As a user
+So I can give away food I won't use
+I can list a food item
+
+As a user
+So people can see who I am
+I can add my gravatar profile picture
+
+As a user
+So I can find food available in my local area
+I can see a list of food in my area
+
+As a user
+So I can contact my fellow users
+I want to be able to send them a message
+
+As a user
+So I can remove food from the application if it's been eaten/used
+I want to be able to delete my own food items from the website
+```
+
+After having achieved our primary targets - we moved onto more ambitious ones - connecting our application to external API's. Firstly we used the Spoonacular API to allow users to see recipes based on what was in their own fridge as well as being given away by users in their local area-
+
+```
+As a user
+So I can receive recipe ideas based on food items in my area
+I can view a recipe suggestions
+```
+
+Once this goal had been attained we moved onto our final stretch goal - to allow users to see where their othe food was located. We did this using the google Maps API-
+
+```
+As a user
+So I can see what items are available in my area
+I can see items near my location on Google Maps
+```
+
+## Tech Stack
+
+*After much deliberation at the start of the project we decided to use the MERN stack - Mongo, Express, React and Node in order to create our application. You're currently viewing our frontend and the rest of this readme will be focussed on how we used React and Redux to build frontend.*
+
+## Technologies Used
+
+* React
+  * We built our app with React. This allowed us to create slick and good-looking front ends that would be easy to scale moving forward.
+* Redux
+  * One of biggest decisions we made in our project was to use Redux. Although the learning curve was sharp - it benefitted us hugely in the long run. Allowing us to use external API's with relative ease
+* Axios
+  * Axios allows us to connect with our API's. It was particularly useful when working with our own API as, if the user was logged in, [we always sent](https://github.com/mackacavs/bestB4-Front-End/blob/master/src/utils/setAuthToken.js) an 'x-auth-token' with the request that used for validation in our back-end
+* React-Router-Dom
+  * For routing we used react-router-dom. This allowed us to send the user to different parts of the application without the page reloading
+* css
+  * Instead of using a css framework like Bootstrap or Materialize, we created our own stylesheet to give us more creative freedom in our front-end
+* Spoonacular API
+  * The Spoonacular API allowed us to get recipes based on what was currently in our own fridge as well as in our local area. We took data stored in our Redux state to do this
+* Google Maps API
+  * Our Google Maps API told the user where they could find the food needed to make their recipes. We also used the node package 'google-map-react' to load our map
+* UUID
+  * Finally, UUID allowed us to give an ID to every alert we sent - making them easy to delete after 5 seconds
+
+### Screenshots
+
+#### Shots of the Application
+
+<img src="Images/home_page.png" width="400px">
+
+The home page - we used the *background* css style component in order to create the effect you see above
+
+<img src="Images/sign_up.png" width="400px">
+
+The sign-up page
+
+<img src="Images/fridge_food.png" width="400px">
+
+The user can view what he has in his fridge. Also note the alert at the top as when the user enters a food item an alert is sent.
+
+<img src="Images/close_food.png" width="400px">
+
+Here you can see what's available to the user locally. The user only sees items that have the same first 3 numbers of their postcodes
+
+<img src="Images/recipes.png" width="400px">
+
+The Spoonacular API gives us back recipes based on what's in the users fridge as well as available locally
+
+#### Main app.js file
+
+#### Redux path
+
+#### Google Maps API
+
+#### Spoonacular API
+
+
+
+Alternative architectures that could be used
+
+Testing Challenges
+
+How to load tests
+
+Building and running the program locally
+
+## Installation
+
+* Git Clone the current repository into a local directory of your choice
+* Run NPM Install in order to install the necassary modules to run the application
+* Enter *node server.js* in order to run the backend server locally - this will be hosted on port 5000
