@@ -20,6 +20,4 @@ export const addLocation = (location, description, name) => async dispatch => {
 
     })
 
-
-
 }

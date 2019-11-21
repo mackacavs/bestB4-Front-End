@@ -7,8 +7,6 @@
           :--..___________..--;
            \.,_____________,./
 
-
-
 ### Project Description
 
 As our final project at Makers Academy - team BestB4 consisting of Eithel, Elsie, Jules, Mackenzie and Valeria had the challenge of changing the world in 8 days.  We came up with this - a website to help people waste less food by allowing users to easily give away food they won't use - or food that's about to expire - to other people in their local community. Here's our tasks broken down into user stories-
@@ -134,8 +132,21 @@ Our reducer is relatively simple. We add our payload - which in this case is the
 
 #### Google Maps API
 
+<img src="images/google/google.png" width="400px">
+
+Here's a shot of the googleMaps action. We bring in the postcost from the redux state - every post has it's own postcose attached. From there we remove the space in the postcode and make the call to our google maps API. The latitude and logitude are returned as part of the API call and used to specify the location of the item of food. 
+
+These are then added to the GoogleMaps component you can see below-
+
+<img src="images/google/component.png" width="400px">
+
 #### Spoonacular API
 
+When the *Click here for recipes* button is clicked an action *addRecipe* is set off. This action is sent with all the users ingredients as well as all the ingredients in the database. From there, we firstly remove all ingredients that don't match the users postcode and we then add them to the listOfIngredients we're sending to the API. We then edit our url to satisfy the Spoonacular's API requirements.
+
+<img src="images/recipe/recipe.png" width="400px">
+
+We then call our reducer sending a payload of the data we've got back from our API call. This can then be displayed on the screen.
 
 
 Alternative architectures that could be used

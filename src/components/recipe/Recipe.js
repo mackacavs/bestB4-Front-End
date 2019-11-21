@@ -4,15 +4,6 @@ import { addRecipe } from '../../actions/recipe'
 
 const Recipe = ({ addRecipe, post: { posts, userPosts }, auth: { user }, recipe }) => {
 
-  // return (
-  //   <div className="post-form" style={{ flex: 1 }}>
-  //     {recipe.recipes ?
-  //       <h1>{recipe.recipes[0].title}, {recipe.recipes[2].title}</h1>
-  //
-  //
-  //      : <h1>Click the Above button to get recipes</h1>}
-  //   </div>
-  // )
   if (recipe.recipes) {
     return (
 
