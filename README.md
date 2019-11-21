@@ -148,17 +148,58 @@ When the *Click here for recipes* button is clicked an action *addRecipe* is set
 
 We then call our reducer sending a payload of the data we've got back from our API call. This can then be displayed on the screen.
 
+### Choice of Architecture
 
-Alternative architectures that could be used
+When building our frontend we had 2 big decisions to make - what, if any, framework to use and how to handle our state.
 
-Testing Challenges
+For the first decision we decided to use React. We chose React as we wanted the opportunity to use a totally new framework and test our abilities to learn a new language in such a short amount of time. One of the great positives using React wsa that when we fully understood how it worked we could add features relatively easily. We added both the Google Maps API and Spoonacular API in the final 2 days of our project.
 
-How to load tests
+Secondly, we decided to use Redux to hold and maintain our state. This was not a decision taken lightly as we were fully aware of the difficulties Redux would give us. After we'd gotten to grips with how actions and reducers work we cold quickly see the benefit. If we'd chosen to hold our state in their individual components it would have been incredibly difficult if not impossible to use our external API's. Further to the former point, if we were to further expand the application - using Redux should make this a relatively painless
 
-Building and running the program locally
 
-## Installation
+*Please note that after downloading both repositories on your local computer. You must run npm install to download all the neccessary node packages
 
-* Git Clone the current repository into a local directory of your choice
-* Run NPM Install in order to install the necassary modules to run the application
-* Enter *node server.js* in order to run the backend server locally - this will be hosted on port 5000
+### How to run front end feature tests
+
+1. Run back end server (from backend directory) <br>
+
+$ BestB4 <br>
+
+```
+node server.js
+
+```
+2. Run front end server (from front end directory) <br>
+
+$ client <br>
+
+```
+npm run start
+
+```
+
+3. Run Cypress (from front end directory)
+
+$ Client
+
+```
+node_modules/.bin/cypress open
+```
+
+The Cypress UI will then open automatically and you will see a list of feature tests that can be run.
+
+### How to use
+
+To run back end repository.
+```bash
+node server.js
+```
+
+To run front end repository
+```
+npm run start
+```
+
+You can now view in your browser of choice by visiting:
+
+http://localhost:3000/
