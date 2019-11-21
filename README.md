@@ -90,27 +90,31 @@ I can see items near my location on Google Maps
 
 #### Shots of the Application
 
-<img src="Images/home_page.png" width="400px">
+<img src="images/application/home_page.png" width="400px">
 
 The home page - we used the *background* css style component in order to create the effect you see above
 
-<img src="Images/sign_up.png" width="400px">
+<img src="images/application/sign_up.png" width="400px">
 
 The sign-up page
 
-<img src="Images/fridge_food.png" width="400px">
+<img src="images/application/fridge_food.png" width="400px">
 
 The user can view what he has in his fridge. Also note the alert at the top as when the user enters a food item an alert is sent.
 
-<img src="Images/close_food.png" width="400px">
+<img src="images/application/close_food.png" width="400px">
 
 Here you can see what's available to the user locally. The user only sees items that have the same first 3 numbers of their postcodes
 
-<img src="Images/recipes.png" width="400px">
+<img src="images/application/recipes.png" width="400px">
 
 The Spoonacular API gives us back recipes based on what's in the users fridge as well as available locally
 
-#### Main app.js file
+#### app.js file
+
+<img src="images/main/app.png" width="400px">
+
+The heart of our frontend was based in our app.js file. Also note how we run the loadUser() everytime the application runs. This is because jwtoken how is stateless  -so it has to be reloaded every time the application is updated
 
 #### Redux path
 
