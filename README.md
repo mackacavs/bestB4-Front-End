@@ -114,9 +114,23 @@ The Spoonacular API gives us back recipes based on what's in the users fridge as
 
 <img src="images/main/app.png" width="400px">
 
-The heart of our frontend was based in our app.js file. Also note how we run the loadUser() everytime the application runs. This is because jwtoken how is stateless  -so it has to be reloaded every time the application is updated
+The heart of our frontend was based in our app.js file. Note how we run the *loadUser()* action everytime the application runs. This is because jwtoken is stateless  - so it has to be reloaded every time the application is updated
 
 #### Redux path
+
+Below you'll see how we use Redux to manage our state
+
+<img src="images/redux/user_clicks.png" width="400px">
+
+Firstly, the information that the user enters is saved locally in our component. When the user clicks the *submit* button the data is then sent to our *addPost* action along with an edited time the user has submitted.
+
+<img src="images/redux/action.png" width="400px">
+
+In our action file we firstly add our header to make sure our back-end knows what type of data to expect. *Remember, we're automatically adding the auth-token evey time the user tries to end data to our backend.* After the data has been successfully added, we call the reducer. This reducer recieves the data that we've got back from our backend. Finally our *setAlert* function is called - telling the user they've successfully added something to the database. 
+
+<img src="images/redux/reducer.png" width="400px">
+
+Our reducer is relatively simple. We add our payload - which in this case is the post we've just added (and got back from our backend API) - to our redux state.
 
 #### Google Maps API
 

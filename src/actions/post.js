@@ -54,7 +54,6 @@ export const deleteUserPosts = (id) => async dispatch => {
 }
 
 export const addPost = (description, expiry) => async dispatch => {
-  console.log("hello")
   const config = {
     headers: {
       'Content-Type': 'application/json'
