@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import { connect } from 'react-redux';
 
@@ -12,7 +12,7 @@ const GoogleMap = ({ googleMap, auth }) => {
       <div style={{ height: '400px', width: '400px', margin: '0 auto' }}>
 
         <GoogleMapReact
-          bootstrapURLKeys={{ key:' key ' }}
+          bootstrapURLKeys={{ key: ' key ' }}
           defaultCenter={{
             lat: 51.50986,
             lng: -0.118092

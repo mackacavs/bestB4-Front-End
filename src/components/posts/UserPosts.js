@@ -1,8 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getUserPosts, addPost, deleteUserPosts } from '../../actions/post';
-import PostForm from './PostForm'
-import PostItem from './PostItem'
+import { getUserPosts } from '../../actions/post';
 import UserPostItem from './UserPostItem'
 
 const UserPosts = ({ getUserPosts, post: { userPosts, loading } }) => {

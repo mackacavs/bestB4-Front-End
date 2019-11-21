@@ -156,10 +156,9 @@ For the first decision we decided to use React. We chose React as we wanted the 
 
 Secondly, we decided to use Redux to hold and maintain our state. This was not a decision taken lightly as we were fully aware of the difficulties Redux would give us. After we'd gotten to grips with how actions and reducers work we cold quickly see the benefit. If we'd chosen to hold our state in their individual components it would have been incredibly difficult if not impossible to use our external API's. Further to the former point, if we were to further expand the application - using Redux should make this a relatively painless
 
+### How to run front end feature tests
 
 *Please note that after downloading both repositories on your local computer. You must run npm install to download all the neccessary node packages
-
-### How to run front end feature tests
 
 1. Run back end server (from backend directory) <br>
 
@@ -167,7 +166,6 @@ $ BestB4 <br>
 
 ```
 node server.js
-
 ```
 2. Run front end server (from front end directory) <br>
 
@@ -175,7 +173,6 @@ $ client <br>
 
 ```
 npm run start
-
 ```
 
 3. Run Cypress (from front end directory)

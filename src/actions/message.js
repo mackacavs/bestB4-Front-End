@@ -18,7 +18,7 @@ export const addMessage = (message, user) => async dispatch => {
   const body = JSON.stringify({ message, recipient })
 
   try {
-    const res = await axios.post('api/messages', body, config);
+    await axios.post('api/messages', body, config);
 
     dispatch(setAlert('Message sent', 'success'))
   } catch (err) {

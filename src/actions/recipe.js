@@ -1,6 +1,4 @@
-import axios from 'axios';
 import { ADD_RECIPES } from './types';
-import { GET_RECIPES } from './types';
 
 export const addRecipe = (posts, userPosts, postcode) => async dispatch => {
 
@@ -9,10 +7,10 @@ export const addRecipe = (posts, userPosts, postcode) => async dispatch => {
   let listOfIngredients = []
 
   localPosts.map(post => {
-    listOfIngredients.push(`${post.description}`)
+    return listOfIngredients.push(`${post.description}`)
   })
   userPosts.map(post => {
-    listOfIngredients.push(`${post.description}`)
+    return listOfIngredients.push(`${post.description}`)
   })
   let url = 'https://api.spoonacular.com/recipes/findByIngredients?apiKey=38cf1d4c0e824c288085274da5db1a76&ingredients='
 

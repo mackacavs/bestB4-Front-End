@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { addMessage } from '../../actions/message'

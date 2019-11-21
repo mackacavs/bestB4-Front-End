@@ -10,7 +10,6 @@ import PostForm from '../posts/PostForm'
 const Profile = props => {
   return (
     <Fragment>
-      <h4 className="mb"></h4>
       <div className="flex_container">
         <UserPosts />
         <PostForm />

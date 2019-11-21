@@ -38,7 +38,7 @@ export const getUserPosts = () => async dispatch => {
 
 export const deleteUserPosts = (id) => async dispatch => {
   try {
-    const res = await axios.delete(`api/posts/${id}`)
+    await axios.delete(`api/posts/${id}`)
     dispatch({
       type: DELETE_POSTS,
       payload: id

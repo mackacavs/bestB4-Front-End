@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react'
 import Moment from 'react-moment';
 import { connect } from 'react-redux';
 import { deleteUserPosts } from '../../actions/post';
